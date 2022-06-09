@@ -1,6 +1,6 @@
 import './App.css';
 import VehicleList from './VehicleList';
-import TrafficLight from './TrafficLight';
+// import TrafficLight from './TrafficLight';
 
 function App() {
   // track the following state with a few useState hooks:
