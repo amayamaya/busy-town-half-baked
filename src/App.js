@@ -10,8 +10,14 @@ function App() {
   const [lizardSize, setLizardSize] = useState(10);
   // alienSize should be a number that starts out as 10
   const [alienSize, setAlienSize] = useState(10);
-  console.log(alienSize);
   // traffic is complicated. It should be an array of strings that starts out as ['car', 'truck']
+  const [vehicles, setVehicles] = useState(['car', 'truck', 'bus', 'motorcycle']);
+
+  function handleCarClick() {
+    vehicles.push('car');
+
+    setVehicles(vehicles.slice());
+  }
 
   return (
     <div className="App">
@@ -60,11 +66,11 @@ function App() {
       This prop should be an array of strings like ['car', 'truck', 'truck', 'car', 'bus'].
       Do you have something like that in state that you could pass as a vehicles prop? 
       */}
-      <VehicleList />
+      <VehicleList vehicles={vehicles} />
       <div className="buttons">
         {/* This part is weird */}
         {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'car' to the end */}
-        <button>Car</button>
+        <button onClick={handleCarClick}>Car</button>
         {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'bus' to the end */}
         <button>Bus</button>
         {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'truck' to the end */}
