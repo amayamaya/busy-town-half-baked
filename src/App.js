@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import VehicleList from './VehicleList';
+import TrafficLight from './TrafficLight';
 // import TrafficLight from './TrafficLight';
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
   const [alienSize, setAlienSize] = useState(10);
   // traffic is complicated. It should be an array of strings that starts out as ['car', 'truck']
   const [vehicles, setVehicles] = useState(['car', 'truck', 'bus', 'motorcycle']);
+  const [lightColor, setLightColor] = useState('red');
+
 
   function handleCarClick() {
     vehicles.push('car');
@@ -70,14 +73,14 @@ function App() {
           </div>
         </div>
       </div>
-      {/* <TrafficLight color={lightColor} /> */}
+      <TrafficLight color={lightColor} />
       <div className="buttons">
         {/* when you click this button, the color of the light in state should be set to 'red' */}
-        <button>Red</button>
+        <button onClick={() => setLightColor('red')}>Red</button>
         {/* when you click this button, the color of the light in state should be set to 'yellow' */}
-        <button>Yellow</button>
+        <button onClick={() => setLightColor('yellow')}>Yellow</button>
         {/* when you click this button, the color of the light in state should be set to 'green' */}
-        <button>Green</button>
+        <button onClick={() => setLightColor('green')}>Green</button>
       </div>
       {/* 
       the VehicleList component takes in one prop: vehicles.
